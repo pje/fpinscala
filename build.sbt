@@ -1,6 +1,10 @@
 val commonSettings = Seq(
-  scalaVersion := "2.12.1"
+  scalaVersion := "2.12.1",
+  libraryDependencies ++= Seq("org.specs2" %% "specs2-core" % "3.8.9" % "test"),
+  scalacOptions in Test ++= Seq("-Yrangepos")
 )
+
+
 
 lazy val root = (project in file("."))
   .aggregate(exercises, answers)
@@ -20,3 +24,8 @@ lazy val answers = (project in file("answers"))
   .settings(
     name := "answers"
   )
+
+
+//scalaVersion := "2.12.1"
+//libraryDependencies ++= Seq("org.specs2" %% "specs2-core" % "3.8.9" % "test")
+//scalacOptions in Test ++= Seq("-Yrangepos")
