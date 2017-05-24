@@ -60,4 +60,10 @@ class OptionTest extends Specification {
     Option.sequence(List(Some(1), Some(2), Some(3))) ==== Some(List(1, 2, 3))
     Option.sequence(List(Some(1), Some(2), None)) ==== None
   }
+
+  ".traverse" >> {
+    def f(a: Int): Option[Int] = Some(a + 1)
+
+    Option.traverse(List(1, 2, 3))(f) ==== Some(List(2, 3, 4))
+  }
 }
